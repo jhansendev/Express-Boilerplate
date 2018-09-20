@@ -19,7 +19,10 @@ const logger = winston.createLogger({
       level: 'info',
       filename: `${logDir}/log-file.log`,
       handleExceptions: true,
-      format: winston.format.json(),
+      format: winston.format.combine(
+        winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+        winston.format.json()
+      ),
       maxsize: 5242880, // 5MB
       maxFiles: 5,
       colorize: false

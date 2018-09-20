@@ -1,12 +1,18 @@
-import path from 'path';
-
-// import .env variables
-require('dotenv-safe').load({
-  path: path.join(__dirname, '../../.env'),
-  sample: path.join(__dirname, '../../.env.example')
-});
-
-export default {
-  env: process.env.NODE_ENV,
-  port: process.env.PORT
+module.exports = {
+  development: {
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    dialect: 'postgres'
+  },
+  production: {
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    dialect: 'postgres'
+  }
 };
